@@ -24,7 +24,8 @@
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>angus-activation</artifactId>
-    <name>Angus Activation Registries implementation</name>
+    <name>Angus Activation Registries</name>
+    <description>${project.name} Implementation</description>
 
     <dependencies>
         <dependency>
