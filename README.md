@@ -1,12 +1,13 @@
+[![Build Status](https://github.com/eclipse-ee4j/angus-activation/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/eclipse-ee4j/angus-activation/actions/workflows/maven.yml?branch=master)
+
 # Eclipse Angus - Activation
 
-Jakarta Activation lets you take advantage of standard services to:
-determine the type of an arbitrary piece of data; encapsulate access to
-it; discover the operations available on it; and instantiate the
+This project provides the implementation of Jakarta Activation Specification
+which lets you take advantage of standard services to: determine the type of an arbitrary piece of data;
+encapsulate access to it; discover the operations available on it; and instantiate the
 appropriate bean to perform the operation(s).
 
-See the
-[Jakarta Activation web site](https://eclipse-ee4j.github.io/jaf/).
+This project is part of [Eclipse Angus project](https://projects.eclipse.org/projects/ee4j.angus).
 
 ## License
 
@@ -28,3 +29,10 @@ the license text included in every source file.
 
 We use [contribution policy](CONTRIBUTING.md), which means we can only accept contributions under
 the terms of [Eclipse Contributor Agreement](http://www.eclipse.org/legal/ECA.php).
+
+## Links
+
+* [Jakarta Activation Specification project](https://github.com/eclipse-ee4j/jaf).
+* [Jakarta Activation web site](https://eclipse-ee4j.github.io/jaf/).
+* [Javadoc](https://javadoc.io/doc/org.eclipse.angus/angus-activation/latest/com.sun.activation.registries/module-summary.html)
+* [Mailing list](https://accounts.eclipse.org/mailing-list/angus-dev)

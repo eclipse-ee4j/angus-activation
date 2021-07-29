@@ -6,7 +6,7 @@ This content is produced and maintained by the Eclipse Angus project.
 
 ## Trademarks
 
- Eclipse Angus is a trademark of the Eclipse Foundation.
+Eclipse Angus is a trademark of the Eclipse Foundation.
 
 ## Copyright
 
