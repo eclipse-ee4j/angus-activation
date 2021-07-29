@@ -18,6 +18,12 @@ import java.io.InputStream;
 
 public class MailcapRegistryProviderImpl implements MailcapRegistryProvider {
 
+    /**
+     * Default constructor
+     */
+    public MailcapRegistryProviderImpl() {
+    }
+
     @Override
     public MailcapRegistry getByFileName(String name) throws IOException {
         return new MailcapFile(name);

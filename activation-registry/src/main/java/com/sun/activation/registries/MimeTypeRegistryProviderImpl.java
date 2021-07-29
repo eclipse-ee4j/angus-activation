@@ -17,6 +17,12 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class MimeTypeRegistryProviderImpl implements MimeTypeRegistryProvider {
+
+    /**
+     * Default constructor
+     */
+    public MimeTypeRegistryProviderImpl() {}
+
     @Override
     public MimeTypeRegistry getByFileName(String name) throws IOException {
         return new MimeTypeFile(name);

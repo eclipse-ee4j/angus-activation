@@ -184,11 +184,6 @@
                     <groupId>org.glassfish.copyright</groupId>
                     <artifactId>glassfish-copyright-maven-plugin</artifactId>
                     <version>2.4</version>
-                    <configuration>
-                        <scm>git</scm>
-                        <scmOnly>true</scmOnly>
-                        <excludeFile>copyright-exclude</excludeFile>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -280,7 +275,7 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Specification-Title>${spec.title}</Specification-Title>
-                        <Specification-Version>${.spec.version}</Specification-Version>
+                        <Specification-Version>${spec.version}</Specification-Version>
                         <Specification-Vendor>${project.organization.name}</Specification-Vendor>
                         <Extension-Name>${project.groupId}</Extension-Name>
                         <Implementation-Title>${project.name}</Implementation-Title>
@@ -365,24 +360,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--
-            Configure the source plugin here so that it will know
-            about the sources that may have been downloaded by the
-            maven-dependency-plugin and configured by the
-            build-helper-maven-plugin.
-            -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -402,12 +379,6 @@
 Comments to : <a href="mailto:angus-dev@eclipse.org">angus-dev@eclipse.org</a>.<br>
 Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]]>
                     </bottom>
-                    <groups>
-                        <group>
-                            <title>Jakarta Activation API Packages</title>
-                            <packages>jakarta.*</packages>
-                        </group>
-                    </groups>
                     <!-- force the doc-files directory to be copied -->
                     <docfilessubdirs>true</docfilessubdirs>
                     <detectJavaApiLink>false</detectJavaApiLink>
@@ -424,6 +395,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                     <update>${copyright.update}</update>
                     <!-- check that year is correct -->
                     <ignoreYear>${copyright.ignoreyear}</ignoreYear>
+                    <quiet>false</quiet>
                 </configuration>
                 <executions>
                     <execution>
