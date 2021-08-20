@@ -392,14 +392,6 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                     <ignoreYear>${copyright.ignoreyear}</ignoreYear>
                     <quiet>false</quiet>
                 </configuration>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
