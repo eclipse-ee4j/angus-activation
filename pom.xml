@@ -35,13 +35,14 @@
         <spec.title>Jakarta Activation Specification</spec.title>
         <activation.version>2.1.0-RC1</activation.version>
         <javadoc.title>Agnus Activation Documentation</javadoc.title>
-        <copyright.exclude>copyright-exclude</copyright.exclude>
+        <copyright.exclude>etc/copyright-exclude</copyright.exclude>
         <copyright.ignoreyear>false</copyright.ignoreyear>
         <copyright.scmonly>true</copyright.scmonly>
         <copyright.update>false</copyright.update>
-        <spotbugs.skip>true</spotbugs.skip>
-        <spotbugs.threshold>High</spotbugs.threshold>
-        <spotbugs.plugin.version>4.2.0</spotbugs.plugin.version>
+        <spotbugs.skip>false</spotbugs.skip>
+        <spotbugs.threshold>Low</spotbugs.threshold>
+        <spotbugs.exclude>etc/spotbugs-exclude.xml</spotbugs.exclude>
+        <spotbugs.version>4.3.0</spotbugs.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -146,19 +147,14 @@
                     <version>3.3.0</version>
                 </plugin>
                 <plugin>
-                    <!--
-                    By default, disable the SpotBugs plugin for all modules.
-                    It's enabled in the modules where we actually want to
-                    run it.
-                    -->
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>${spotbugs.plugin.version}</version>
+                    <version>${spotbugs.version}</version>
                     <configuration>
                         <skip>${spotbugs.skip}</skip>
                         <threshold>${spotbugs.threshold}</threshold>
                     </configuration>
-                </plugin>
+                </plugin>                
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
@@ -186,10 +182,11 @@
                     <version>2.4</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.9.1</version>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>0.8.7</version>
                 </plugin>
+
             </plugins>
         </pluginManagement>
 
@@ -229,10 +226,8 @@
                     <release>9</release>
                     <compilerArgs>
                         <arg>-Xlint:all</arg>
-                        <arg>-Xlint:-rawtypes</arg>
-                        <arg>-Xlint:-unchecked</arg>
-                        <arg>-Xlint:-finally</arg>
                     </compilerArgs>
+                    <showDeprecation>true</showDeprecation>
                     <showWarnings>true</showWarnings>
                 </configuration>
                 <executions>
@@ -397,14 +392,16 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                     <ignoreYear>${copyright.ignoreyear}</ignoreYear>
                     <quiet>false</quiet>
                 </configuration>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <configuration>
+                    <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+                    <fork>true</fork>
+                    <excludeFilterFile>${spotbugs.exclude}</excludeFilterFile>
+                    <failThreshold>High</failThreshold>
+                </configuration>
             </plugin>
         </plugins>
 
@@ -437,24 +434,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
         <profile>
             <id>oss-release</id>
         </profile>
-    </profiles>
 
-    <reporting>
-        <plugins>
-            <!--
-            Configure SpotBugs to run with "mvn site" and
-            generate html output that can be viewed directly.
-            -->
-            <plugin>
-                <groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>${spotbugs.plugin.version}</version>
-                <configuration>
-                    <skip>${spotbugs.skip}</skip>
-                    <threshold>${spotbugs.threshold}</threshold>
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting>
+    </profiles>
 
 </project>

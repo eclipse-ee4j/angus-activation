@@ -1,6 +1,7 @@
-[![Build Status](https://github.com/eclipse-ee4j/angus-activation/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/eclipse-ee4j/angus-activation/actions/workflows/maven.yml?branch=master)
-
 # Eclipse Angus - Activation
+
+[![Build Status](https://github.com/eclipse-ee4j/angus-activation/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/eclipse-ee4j/angus-activation/actions/workflows/maven.yml?branch=master)
+[![Jakarta Staging (Snapshots)](https://img.shields.io/nexus/s/https/jakarta.oss.sonatype.org/org.eclipse.angus/angus-activation.svg)](https://jakarta.oss.sonatype.org/content/repositories/staging/org/eclipse/angus/angus-activation/)
 
 This project provides the implementation of Jakarta Activation Specification
 which lets you take advantage of standard services to: determine the type of an arbitrary piece of data;
