@@ -27,11 +27,6 @@
     <name>Angus Activation Registries</name>
     <description>${project.name} Implementation</description>
 
-    <properties>
-        <copyright.exclude>${project.basedir}/../etc/copyright-exclude</copyright.exclude>
-        <spotbugs.exclude>${project.basedir}/../etc/spotbugs-exclude.xml</spotbugs.exclude>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>jakarta.activation</groupId>

@@ -35,13 +35,13 @@
         <spec.title>Jakarta Activation Specification</spec.title>
         <activation.version>2.1.0-RC1</activation.version>
         <javadoc.title>Agnus Activation Documentation</javadoc.title>
-        <copyright.exclude>${project.basedir}/etc/copyright-exclude</copyright.exclude>
+        <copyright.exclude>etc/copyright-exclude</copyright.exclude>
         <copyright.ignoreyear>false</copyright.ignoreyear>
         <copyright.scmonly>true</copyright.scmonly>
         <copyright.update>false</copyright.update>
         <spotbugs.skip>false</spotbugs.skip>
         <spotbugs.threshold>Low</spotbugs.threshold>
-        <spotbugs.exclude>${project.basedir}/etc/spotbugs-exclude.xml</spotbugs.exclude>
+        <spotbugs.exclude>etc/spotbugs-exclude.xml</spotbugs.exclude>
         <spotbugs.version>4.3.0</spotbugs.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
