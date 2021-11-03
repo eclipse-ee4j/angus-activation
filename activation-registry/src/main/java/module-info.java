@@ -8,6 +8,9 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+/**
+ * Eclipse Angus - Activation provides implementation of Jakarta Activation Specification.
+ */
 module com.sun.activation.registries {
     exports com.sun.activation.registries;
     requires java.logging;
