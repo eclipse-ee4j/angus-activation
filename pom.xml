@@ -33,7 +33,7 @@
     <properties>
         <spec.version>2.1</spec.version>
         <spec.title>Jakarta Activation Specification</spec.title>
-        <activation.version>2.1.0-RC1</activation.version>
+        <activation.version>2.1.0</activation.version>
         <javadoc.title>Agnus Activation Documentation</javadoc.title>
         <copyright.exclude>etc/copyright-exclude</copyright.exclude>
         <copyright.ignoreyear>false</copyright.ignoreyear>
@@ -42,7 +42,7 @@
         <spotbugs.skip>false</spotbugs.skip>
         <spotbugs.threshold>Low</spotbugs.threshold>
         <spotbugs.exclude>etc/spotbugs-exclude.xml</spotbugs.exclude>
-        <spotbugs.version>4.3.0</spotbugs.version>
+        <spotbugs.version>4.4.2.2</spotbugs.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -137,11 +137,6 @@
                     <version>3.2.0</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.commonjava.maven.plugins</groupId>
-                    <artifactId>directory-maven-plugin</artifactId>
-                    <version>0.3.1</version>
-                </plugin>
-                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>3.3.0</version>
@@ -154,11 +149,11 @@
                         <skip>${spotbugs.skip}</skip>
                         <threshold>${spotbugs.threshold}</threshold>
                     </configuration>
-                </plugin>                
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.0.0-M3</version>
+                    <version>3.0.0</version>
                 </plugin>
 
                 <plugin>
@@ -169,7 +164,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.3.0</version>
+                    <version>3.3.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -186,7 +181,6 @@
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>0.8.7</version>
                 </plugin>
-
             </plugins>
         </pluginManagement>
 
@@ -368,7 +362,7 @@
                     <notimestamp>true</notimestamp>
                     <serialwarn>true</serialwarn>
                     <quiet>true</quiet>
-                    <header><![CDATA[<br>Jakarta Activation API v${project.version}]]></header>
+                    <header><![CDATA[<br>Angus Activation v${project.version}]]></header>
                     <bottom>
                         <![CDATA[
 Comments to : <a href="mailto:angus-dev@eclipse.org">angus-dev@eclipse.org</a>.<br>
@@ -434,7 +428,6 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
         <profile>
             <id>oss-release</id>
         </profile>
-
     </profiles>
 
 </project>
