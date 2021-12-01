@@ -1,0 +1,147 @@
+***********************************************************************************
+***                        TCK bundle information                               ***
+*** Name:       activation-tck-2.1.0.zip                                     ***
+*** Download URL:	         https://download.eclipse.org/ee4j/jakartaee-tck/jakartaee10/staged/eftl/activation-tck-2.1.0.zip                                    ***
+*** Date and size: date: 2021-11-30 13:10:26.000000000 +0000, size(b): 9792882        ***
+*** SHA256SUM: 6c4aad27e45761dd9f3e0f8506f37edea41f42401465db750689145718b27a0b ***
+***                                                                             ***
+***********************************************************************************
+***                        TCK results summary                                  ***
+[javatest.batch] Number of Tests Passed      = 91
+[javatest.batch] Number of Tests Failed      = 0
+[javatest.batch] Number of Tests with Errors = 0
+[javatest.batch] Number of Tests Not Run     = 0
+[javatest.batch] ---------------------------------------------------------------
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/ActivationDataFlavor/ActivationDataFlavor_Test.java#ActivationDataFlavor_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/ActivationDataFlavor/equals_Test.java#equals_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/ActivationDataFlavor/getHumanPresentableName_Test.java#getHumanPresentableName_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/ActivationDataFlavor/getMimeType_Test.java#getMimeType_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/ActivationDataFlavor/getRepresentationClass_Test.java#getRepresentationClass_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/ActivationDataFlavor/isMimeTypeEqual_Test.java#isMimeTypeEqual_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/ActivationDataFlavor/normalizeMimeType_Test.java#normalizeMimeType_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/ActivationDataFlavor/normalizeMimeTypeParameter_Test.java#normalizeMimeTypeParameter_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/ActivationDataFlavor/setHumanPresentableName_Test.java#setHumanPresentableName_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/CommandInfo/CommandInfo_Test.java#CommandInfo_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/CommandInfo/getCommandClass_Test.java#getCommandClass_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/CommandInfo/getCommandName_Test.java#getCommandName_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/CommandInfo/getCommandObject_Test.java#getCommandObject_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/CommandMap/getAllCommands_Test.java#getAllCommands_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/CommandMap/getCommand_Test.java#getCommand_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/CommandMap/getDefaultCommandMap_Test.java#getDefaultCommandMap_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/CommandMap/getPreferredCommands_Test.java#getPreferredCommands_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/CommandMap/setDefaultCommandMap_Test.java#setDefaultCommandMap_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/DataHandler_Test.java#DataHandler_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/getAllCommands_Test.java#getAllCommands_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/getBean_Test.java#getBean_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/getCommand_Test.java#getCommand_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/getContent_Test.java#getContent_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/getContentType_Test.java#getContentType_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/getDataSource_Test.java#getDataSource_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/getInputStream_Test.java#getInputStream_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/getName_Test.java#getName_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/getOutputStream_Test.java#getOutputStream_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/getPreferredCommands_Test.java#getPreferredCommands_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/getTransferData_Test.java#getTransferData_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/getTransferDataFlavors_Test.java#getTransferDataFlavors_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/isDataFlavorSupported_Test.java#isDataFlavorSupported_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/setCommandMap_Test.java#setCommandMap_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/setDataContentHandlerFactory_Test.java#setDataContentHandlerFactory_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/DataHandler/writeTo_Test.java#writeTo_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/FileDataSource/FileDataSource_Test.java#FileDataSource_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/FileDataSource/getContentType_Test.java#getContentType_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/FileDataSource/getFile_Test.java#getFile_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/FileDataSource/getInputStream_Test.java#getInputStream_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/FileDataSource/getName_Test.java#getName_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/FileDataSource/getOutputStream_Test.java#getOutputStream_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/FileDataSource/setFileTypeMap_Test.java#setFileTypeMap_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/FileTypeMap/FileTypeMap_Test.java#FileTypeMap_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/FileTypeMap/getContentType_Test.java#getContentType_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/FileTypeMap/getDefaultFileTypeMap_Test.java#getDefaultFileTypeMap_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/FileTypeMap/setDefaultFileTypeMap_Test.java#setDefaultFileTypeMap_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MailcapCommandMap/addMailcap_Test.java#addMailcap_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MailcapCommandMap/createDataContentHandler_Test.java#createDataContentHandler_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MailcapCommandMap/getAllCommands_Test.java#getAllCommands_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MailcapCommandMap/getCommand_Test.java#getCommand_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MailcapCommandMap/getPreferredCommands_Test.java#getPreferredCommands_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MailcapCommandMap/loadFromConf_Test.java#loadFromConf_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MailcapCommandMap/loadFromLib_Test.java#loadFromLib_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MailcapCommandMap/MailcapCommandMap_Test.java#MailcapCommandMap_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/getBaseType_Test.java#getBaseType_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/getParameter_Test.java#getParameter_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/getParameters_Test.java#getParameters_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/getPrimaryType_Test.java#getPrimaryType_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/getSubType_Test.java#getSubType_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/match_Test.java#match_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/MimeType_Test.java#MimeType_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/readExternal_Test.java#readExternal_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/removeParameter_Test.java#removeParameter_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/setParameter_Test.java#setParameter_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/setPrimaryType_Test.java#setPrimaryType_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/setSubType_Test.java#setSubType_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/toString_Test.java#toString_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeType/writeExternal_Test.java#writeExternal_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeTypeParameterList/get_Test.java#get_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeTypeParameterList/getNames_Test.java#getNames_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeTypeParameterList/isEmpty_Test.java#isEmpty_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeTypeParameterList/MimeTypeParameterList_Test.java#MimeTypeParameterList_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeTypeParameterList/remove_Test.java#remove_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeTypeParameterList/set_Test.java#set_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeTypeParameterList/size_Test.java#size_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeTypeParameterList/toString_Test.java#toString_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimeTypeParseException/MimeTypeParseException_Test.java#MimeTypeParseException_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimetypesFileTypeMap/addMimeTypes_Test.java#addMimeTypes_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimetypesFileTypeMap/getContentType_Test.java#getContentType_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimetypesFileTypeMap/loadFromConf_Test.java#loadFromConf_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimetypesFileTypeMap/loadFromLib_Test.java#loadFromLib_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/MimetypesFileTypeMap/MimetypesFileTypeMap_Test.java#MimetypesFileTypeMap_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/Module/UnnamedModule_Test.java#UnnamedModule_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/UnsupportedDataTypeException/UnsupportedDTException_Test.java#UnsupportedDTException_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/URLDataSource/getContentType_Test.java#getContentType_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/URLDataSource/getInputStream_Test.java#getInputStream_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/URLDataSource/getName_Test.java#getName_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/URLDataSource/getOutputStream_Test.java#getOutputStream_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/URLDataSource/getURL_Test.java#getURL_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/URLDataSource/URLDataSource_Test.java#URLDataSource_Test
+[javatest.batch] PASSED........com/sun/tdk/signaturetest/SignatureTest.java
+[javatest.batch] Total time = 27s
+[javatest.batch] Setup time = 0s
+[javatest.batch] Cleanup time = 0s
+[javatest.batch] Test results: passed: 91
+[javatest.batch] Results written to /home/jenkins/agent/workspace/angus-activation-TCK/activation-tck/JTwork.
+[javatest.batch] Report written to /home/jenkins/agent/workspace/angus-activation-TCK/activation-tck/JTreport
+
+run.pluggability:
+[javatest.batch] Starting tests
+[javatest.batch] Dec 1, 2021, 8:57:20 AM Harness starting test run with configuration "jafUnix"...
+[javatest.batch] ***************************************************************
+[javatest.batch] Beginning Test:  javasoft/sqe/tests/jakarta/activation/Pluggability/MailcapRegistryProvider_Test.java#MailcapRegistryProvider_Test
+[javatest.batch] ---------------------------------------------------------------
+[javatest.batch] Finished Test:  PASSED........javasoft/sqe/tests/jakarta/activation/Pluggability/MailcapRegistryProvider_Test.java#MailcapRegistryProvider_Test
+[javatest.batch] ---------------------------------------------------------------
+[javatest.batch] Number of tests completed:  1 (1 pass, 0 fail, 0 errors)
+[javatest.batch] ***************************************************************
+[javatest.batch] Beginning Test:  javasoft/sqe/tests/jakarta/activation/Pluggability/MimeTypeRegistryProvider_Test.java#MimeTypeRegistryProvider_Test
+[javatest.batch] Dec 1, 2021, 8:57:20 AM Finished executing all tests, wait for cleanup...
+[javatest.batch] Dec 1, 2021, 8:57:20 AM Harness done with cleanup from test run.
+[javatest.batch] ---------------------------------------------------------------
+[javatest.batch] Finished Test:  PASSED........javasoft/sqe/tests/jakarta/activation/Pluggability/MimeTypeRegistryProvider_Test.java#MimeTypeRegistryProvider_Test
+[javatest.batch] ---------------------------------------------------------------
+[javatest.batch] Number of tests completed:  2 (2 pass, 0 fail, 0 errors)
+[javatest.batch] ***************************************************************
+[javatest.batch] Completed running 2 tests.
+[javatest.batch] Number of Tests Passed      = 2
+[javatest.batch] Number of Tests Failed      = 0
+[javatest.batch] Number of Tests with Errors = 0
+[javatest.batch] Number of Tests Not Run     = 0
+[javatest.batch] ---------------------------------------------------------------
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/Pluggability/MailcapRegistryProvider_Test.java#MailcapRegistryProvider_Test
+[javatest.batch] PASSED........javasoft/sqe/tests/jakarta/activation/Pluggability/MimeTypeRegistryProvider_Test.java#MimeTypeRegistryProvider_Test
+[javatest.batch] Total time = 0s
+[javatest.batch] Setup time = 0s
+[javatest.batch] Cleanup time = 0s
+[javatest.batch] Test results: passed: 2
+[javatest.batch] Results written to /home/jenkins/agent/workspace/angus-activation-TCK/activation-tck/JTwork.
+[javatest.batch] Report written to /home/jenkins/agent/workspace/angus-activation-TCK/activation-tck/JTreport-Pluggability
+
+BUILD SUCCESSFUL
+Total time: 29 seconds
