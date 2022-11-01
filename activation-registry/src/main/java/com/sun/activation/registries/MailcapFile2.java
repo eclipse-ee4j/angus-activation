@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1997, 2021 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997, 2022 Oracle and/or its affiliates. All rights reserved.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v. 1.0, which is available at
@@ -15,7 +15,7 @@ import jakarta.activation.MailcapRegistry;
 import java.io.*;
 import java.util.*;
 
-public class MailcapFile implements MailcapRegistry {
+public class MailcapFile2 implements MailcapRegistry {
 
     /**
      * A Map indexed by MIME type (string) that references
@@ -53,7 +53,7 @@ public class MailcapFile implements MailcapRegistry {
      * @param new_fname The file name of the mailcap file.
      * @throws	IOException	for I/O errors
      */
-    public MailcapFile(String new_fname) throws IOException {
+    public MailcapFile2(String new_fname) throws IOException {
 	if (LogSupport.isLoggable())
 	    LogSupport.log("new MailcapFile: file " + new_fname);
 	FileReader reader = null;
@@ -75,7 +75,7 @@ public class MailcapFile implements MailcapRegistry {
      * @param is	the input stream
      * @throws	IOException	for I/O errors
      */
-    public MailcapFile(InputStream is) throws IOException {
+    public MailcapFile2(InputStream is) throws IOException {
 	if (LogSupport.isLoggable())
 	    LogSupport.log("new MailcapFile: InputStream");
 	parse(new BufferedReader(new InputStreamReader(is, "iso-8859-1")));
@@ -84,7 +84,7 @@ public class MailcapFile implements MailcapRegistry {
     /**
      * Mailcap file default constructor.
      */
-    public MailcapFile() {
+    public MailcapFile2() {
 	if (LogSupport.isLoggable())
 	    LogSupport.log("new MailcapFile: default");
     }

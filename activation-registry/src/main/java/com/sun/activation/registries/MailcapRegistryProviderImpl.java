@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2021, 2022 Oracle and/or its affiliates. All rights reserved.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v. 1.0, which is available at
@@ -26,16 +26,16 @@ public class MailcapRegistryProviderImpl implements MailcapRegistryProvider {
 
     @Override
     public MailcapRegistry getByFileName(String name) throws IOException {
-        return new MailcapFile(name);
+        return new MailcapFile2(name);
     }
 
     @Override
     public MailcapRegistry getByInputStream(InputStream inputStream) throws IOException {
-        return new MailcapFile(inputStream);
+        return new MailcapFile2(inputStream);
     }
 
     @Override
     public MailcapRegistry getInMemory() {
-        return new MailcapFile();
+        return new MailcapFile2();
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2021, 2022 Oracle and/or its affiliates. All rights reserved.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v. 1.0, which is available at
@@ -25,16 +25,16 @@ public class MimeTypeRegistryProviderImpl implements MimeTypeRegistryProvider {
 
     @Override
     public MimeTypeRegistry getByFileName(String name) throws IOException {
-        return new MimeTypeFile(name);
+        return new MimeTypeFile2(name);
     }
 
     @Override
     public MimeTypeRegistry getByInputStream(InputStream inputStream) throws IOException {
-        return new MimeTypeFile(inputStream);
+        return new MimeTypeFile2(inputStream);
     }
 
     @Override
     public MimeTypeRegistry getInMemory() {
-        return new MimeTypeFile();
+        return new MimeTypeFile2();
     }
 }

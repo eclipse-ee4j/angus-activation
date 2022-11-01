@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1997, 2021 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997, 2022 Oracle and/or its affiliates. All rights reserved.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v. 1.0, which is available at
@@ -16,7 +16,7 @@ import jakarta.activation.MimeTypeRegistry;
 import java.io.*;
 import java.util.*;
 
-public class MimeTypeFile implements MimeTypeRegistry {
+public class MimeTypeFile2 implements MimeTypeRegistry {
     private String fname = null;
     private Hashtable type_hash = new Hashtable();
 
@@ -26,7 +26,7 @@ public class MimeTypeFile implements MimeTypeRegistry {
      * @param new_fname The file name of the mime types file.
      * @throws	IOException	for I/O errors
      */
-    public MimeTypeFile(String new_fname) throws IOException {
+    public MimeTypeFile2(String new_fname) throws IOException {
 	File mime_file = null;
 	FileReader fr = null;
 
@@ -47,14 +47,14 @@ public class MimeTypeFile implements MimeTypeRegistry {
 	}
     }
 
-    public MimeTypeFile(InputStream is) throws IOException {
+    public MimeTypeFile2(InputStream is) throws IOException {
 	parse(new BufferedReader(new InputStreamReader(is, "iso-8859-1")));
     }
 
     /**
      * Creates an empty DB.
      */
-    public MimeTypeFile() {
+    public MimeTypeFile2() {
     }
 
     /**

@@ -2,3 +2,6 @@ target/
 */target/
 .m2/
 /.idea/
+.classpath
+.project
+.settings/
