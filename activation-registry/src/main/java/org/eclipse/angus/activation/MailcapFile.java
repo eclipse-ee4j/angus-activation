@@ -8,14 +8,14 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package com.sun.activation.registries;
+package org.eclipse.angus.activation;
 
 import jakarta.activation.MailcapRegistry;
 
 import java.io.*;
 import java.util.*;
 
-public class MailcapFile2 implements MailcapRegistry {
+public class MailcapFile implements MailcapRegistry {
 
     /**
      * A Map indexed by MIME type (string) that references
@@ -53,7 +53,7 @@ public class MailcapFile2 implements MailcapRegistry {
      * @param new_fname The file name of the mailcap file.
      * @throws	IOException	for I/O errors
      */
-    public MailcapFile2(String new_fname) throws IOException {
+    public MailcapFile(String new_fname) throws IOException {
 	if (LogSupport.isLoggable())
 	    LogSupport.log("new MailcapFile: file " + new_fname);
 	FileReader reader = null;
@@ -75,7 +75,7 @@ public class MailcapFile2 implements MailcapRegistry {
      * @param is	the input stream
      * @throws	IOException	for I/O errors
      */
-    public MailcapFile2(InputStream is) throws IOException {
+    public MailcapFile(InputStream is) throws IOException {
 	if (LogSupport.isLoggable())
 	    LogSupport.log("new MailcapFile: InputStream");
 	parse(new BufferedReader(new InputStreamReader(is, "iso-8859-1")));
@@ -84,7 +84,7 @@ public class MailcapFile2 implements MailcapRegistry {
     /**
      * Mailcap file default constructor.
      */
-    public MailcapFile2() {
+    public MailcapFile() {
 	if (LogSupport.isLoggable())
 	    LogSupport.log("new MailcapFile: default");
     }

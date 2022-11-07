@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package com.sun.activation.registries;
+package org.eclipse.angus.activation;
 
 import jakarta.activation.MailcapRegistry;
 import jakarta.activation.spi.MailcapRegistryProvider;
@@ -26,16 +26,16 @@ public class MailcapRegistryProviderImpl implements MailcapRegistryProvider {
 
     @Override
     public MailcapRegistry getByFileName(String name) throws IOException {
-        return new MailcapFile2(name);
+        return new MailcapFile(name);
     }
 
     @Override
     public MailcapRegistry getByInputStream(InputStream inputStream) throws IOException {
-        return new MailcapFile2(inputStream);
+        return new MailcapFile(inputStream);
     }
 
     @Override
     public MailcapRegistry getInMemory() {
-        return new MailcapFile2();
+        return new MailcapFile();
     }
 }

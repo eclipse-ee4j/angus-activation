@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package com.sun.activation.registries;
+package org.eclipse.angus.activation;
 
 import jakarta.activation.MimeTypeRegistry;
 import jakarta.activation.spi.MimeTypeRegistryProvider;
@@ -25,16 +25,16 @@ public class MimeTypeRegistryProviderImpl implements MimeTypeRegistryProvider {
 
     @Override
     public MimeTypeRegistry getByFileName(String name) throws IOException {
-        return new MimeTypeFile2(name);
+        return new MimeTypeFile(name);
     }
 
     @Override
     public MimeTypeRegistry getByInputStream(InputStream inputStream) throws IOException {
-        return new MimeTypeFile2(inputStream);
+        return new MimeTypeFile(inputStream);
     }
 
     @Override
     public MimeTypeRegistry getInMemory() {
-        return new MimeTypeFile2();
+        return new MimeTypeFile();
     }
 }

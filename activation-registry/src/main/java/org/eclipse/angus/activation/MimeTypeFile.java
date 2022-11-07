@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package com.sun.activation.registries;
+package org.eclipse.angus.activation;
 
 import jakarta.activation.MimeTypeEntry;
 import jakarta.activation.MimeTypeRegistry;
@@ -16,7 +16,7 @@ import jakarta.activation.MimeTypeRegistry;
 import java.io.*;
 import java.util.*;
 
-public class MimeTypeFile2 implements MimeTypeRegistry {
+public class MimeTypeFile implements MimeTypeRegistry {
     private String fname = null;
     private Hashtable type_hash = new Hashtable();
 
@@ -26,7 +26,7 @@ public class MimeTypeFile2 implements MimeTypeRegistry {
      * @param new_fname The file name of the mime types file.
      * @throws	IOException	for I/O errors
      */
-    public MimeTypeFile2(String new_fname) throws IOException {
+    public MimeTypeFile(String new_fname) throws IOException {
 	File mime_file = null;
 	FileReader fr = null;
 
@@ -47,14 +47,14 @@ public class MimeTypeFile2 implements MimeTypeRegistry {
 	}
     }
 
-    public MimeTypeFile2(InputStream is) throws IOException {
+    public MimeTypeFile(InputStream is) throws IOException {
 	parse(new BufferedReader(new InputStreamReader(is, "iso-8859-1")));
     }
 
     /**
      * Creates an empty DB.
      */
-    public MimeTypeFile2() {
+    public MimeTypeFile() {
     }
 
     /**
