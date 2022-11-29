@@ -14,3 +14,6 @@ links:
   spec: https://jakarta.ee/specifications/activation
   contrib: CONTRIBUTING
   tckresults: TCK-Results
+
+include:
+  - CONTRIBUTING.md
