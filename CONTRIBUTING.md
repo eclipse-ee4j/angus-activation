@@ -13,6 +13,12 @@ protocol-independent framework to build mail and messaging applications.
 
 * https://projects.eclipse.org/projects/ee4j.angus
 
+## Terms of Use
+
+This repository is subject to the Terms of Use of the Eclipse Foundation
+
+* http://www.eclipse.org/legal/termsofuse.php
+
 ## Developer resources
 
 Information regarding source code management, builds, coding standards, and
@@ -53,4 +59,4 @@ https://www.eclipse.org/projects/handbook/#resources-commit
 
 Contact the project developers via the project's "dev" list.
 
-* angus-dev@eclipse.org
+* https://accounts.eclipse.org/mailing-list/angus-dev
