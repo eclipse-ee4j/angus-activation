@@ -30,7 +30,7 @@ to `org.eclipse.angus.activation` and package name from
 
 Initial release of the Eclipse Angus - Angus Activation project.
 Provides implementation of the [Jakarta Activation 2.1 Specification](https://jakarta.ee/specifications/activation/2.1/).
-
+The main jar file is now located at [org.eclipse.angus:angus-activation](https://search.maven.org/search?q=g:org.eclipse.angus%20a:angus-activation).
 
 ## July 27, 2021 - Angus Activation inception
 
@@ -63,7 +63,7 @@ this Maven dependency:
         </dependencies>
 ```
 
-You can find all of the Angus Mail jar files in
+You can find all of the Eclipse Angus jar files in
 [Maven Central](https://search.maven.org/search?q=g:org.eclipse.angus).
 
 <br/>
