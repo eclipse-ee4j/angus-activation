@@ -33,8 +33,9 @@ the terms of [Eclipse Contributor Agreement](http://www.eclipse.org/legal/ECA.ph
 
 ## Links
 
-* [Jakarta Activation Specification project](https://github.com/eclipse-ee4j/jaf).
-* [Jakarta Activation web site](https://eclipse-ee4j.github.io/jaf/).
-* [Javadoc](https://javadoc.io/doc/org.eclipse.angus/angus-activation/latest/com.sun.activation.registries/module-summary.html)
+* [Angus Activation web site](https://eclipse-ee4j.github.io/angus-activation/)
+* [Jakarta Activation Specification project](https://github.com/eclipse-ee4j/jaf)
+* [Jakarta Activation web site](https://jakartaee.github.io/jaf-api/)
+* [Javadoc](https://eclipse-ee4j.github.io/angus-activation/api)
 * [Mailing list](https://accounts.eclipse.org/mailing-list/angus-dev)
 * [Nightly build job](https://ci.eclipse.org/angus/job/angus-master-build/)

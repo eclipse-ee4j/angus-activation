@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+
+    Copyright (c) 2022 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License v. 2.0, which is available at
+    http://www.eclipse.org/legal/epl-2.0.
+
+    This Source Code may also be made available under the following Secondary
+    Licenses when the conditions for such availability set forth in the
+    Eclipse Public License v. 2.0 are satisfied: GNU General Public License,
+    version 2 with the GNU Classpath Exception, which is available at
+    https://www.gnu.org/software/classpath/license.html.
+
+    SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
+
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>org.eclipse.angus</groupId>
+        <artifactId>angus-activation-project</artifactId>
+        <version>1.1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>angus-activation-docs</artifactId>
+    <packaging>pom</packaging>
+    <name>Angus Activation documentation</name>
+
+    <properties>
+        <angus-activation.www>${project.build.directory}/site</angus-activation.www>
+        <angus-activation.javadoc.destdir>${angus-activation.www}/api</angus-activation.javadoc.destdir>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${angus-activation.www}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                                <resource>
+                                    <directory>../</directory>
+                                    <includes>
+                                        <include>CONTRIBUTING.md</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--
+                To allow us to generate aggregated javadocs that only include some
+                classes in certain packages from certain modules, we need to copy the sources
+                to another location and run javadoc against that set
+                of the sources. This gets sources.
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <!-- download the sources -->
+                        <id>unpack-source</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>jakarta.activation</groupId>
+                                    <artifactId>jakarta.activation-api</artifactId>
+                                    <version>${activation-api.version}</version>
+                                    <classifier>sources</classifier>
+                                    <outputDirectory>${project.build.directory}/javadoc-sources/jakarta.activation</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.eclipse.angus</groupId>
+                                    <artifactId>angus-activation</artifactId>
+                                    <version>${angus-activation.version}</version>
+                                    <classifier>sources</classifier>
+                                    <outputDirectory>${project.build.directory}/javadoc-sources/com.sun.activation.registries</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--
+                We want to produce aggregated javadoc for multiple JPMS modules. To do that
+                we have to pass 'module-source-path' to javadoc tool to make it module aware.
+                While we can pass that option to javadoc through maven-javadoc-plugin
+                using 'additionalOptions', the plugin also sets 'sourcepath' option,
+                which is in conflict with 'module-source-path' (as of maven-javadoc-plugin:3.2.0).
+                Ant task is used here to get around that limitation for the time being.
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>generate-javadocs</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <mkdir dir="${angus-activation.javadoc.destdir}"/>
+                                <javadoc destdir="${angus-activation.javadoc.destdir}"
+                                         modulesourcepath="${project.build.directory}/javadoc-sources/"
+                                         author="false"
+                                         docfilessubdirs="true"
+                                         failonerror="true"
+                                         serialwarn="true"
+                                         source="${angus-activation.javadoc.source}"
+                                         splitindex="true"
+                                         use="true"
+                                         windowtitle="${angus-activation.javadoc.title}"
+                                >
+                                    <arg value="-notimestamp" />
+                                    <arg value="-quiet" />
+                                    <doctitle>${angus-activation.javadoc.title}</doctitle>
+                                    <bottom>${angus-activation.javadoc.bottom}</bottom>
+                                    <header>${angus-activation.javadoc.header}</header>
+                                    <group title="Jakarta Activation API Packages" packages="jakarta.activation*"/>
+                                    <group title="Implementation-specific Packages" packages="com.sun.activation*"/>
+                                    <fileset dir="${project.build.directory}/javadoc-sources">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                </javadoc>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
