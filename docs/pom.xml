@@ -35,6 +35,14 @@
         <angus-activation.javadoc.destdir>${angus-activation.www}/api</angus-activation.javadoc.destdir>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.angus</groupId>
+            <artifactId>angus-activation</artifactId>
+            <version>${angus-activation.version}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
