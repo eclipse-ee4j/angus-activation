@@ -33,7 +33,17 @@
     <properties>
         <spec.version>2.1</spec.version>
         <spec.title>Jakarta Activation Specification</spec.title>
-        <activation.version>2.1.0</activation.version>
+        <activation-api.version>2.1.0</activation-api.version>
+        <angus-activation.version>${project.version}</angus-activation.version>
+
+        <angus-activation.javadoc.source>11</angus-activation.javadoc.source>
+        <angus-activation.javadoc.title>Angus Activation API documentation</angus-activation.javadoc.title>
+        <angus-activation.javadoc.header><![CDATA[<br>Angus Activation v${angus-activation.version}]]></angus-activation.javadoc.header>
+        <angus-activation.javadoc.bottom><![CDATA[
+Comments to: <a href="mailto:angus-dev@eclipse.org">angus-dev@eclipse.org</a>.<br>
+Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]]></angus-activation.javadoc.bottom>
+
+
         <javadoc.title>Agnus Activation Documentation</javadoc.title>
         <copyright.exclude>etc/copyright-exclude</copyright.exclude>
         <copyright.ignoreyear>false</copyright.ignoreyear>
@@ -95,7 +105,13 @@
             <dependency>
                 <groupId>jakarta.activation</groupId>
                 <artifactId>jakarta.activation-api</artifactId>
-                <version>${activation.version}</version>
+                <version>${activation-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.eclipse.angus</groupId>
+                <artifactId>angus-activation</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -106,6 +122,11 @@
 
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.3.0</version>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -165,6 +186,18 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>3.3.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>3.1.0</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.ant</groupId>
+                            <artifactId>ant</artifactId>
+                            <version>1.10.12</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -353,21 +386,18 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
+                    <source>${angus-activation.javadoc.source}</source>
                     <author>false</author>
-                    <description>${javadoc.title}</description>
-                    <doctitle>${javadoc.title}</doctitle>
-                    <windowtitle>${javadoc.title}</windowtitle>
+                    <description>${angus-activation.javadoc.title}</description>
+                    <doctitle>${angus-activation.javadoc.title}</doctitle>
+                    <windowtitle>${angus-activation.javadoc.title}</windowtitle>
                     <splitindex>true</splitindex>
                     <use>true</use>
                     <notimestamp>true</notimestamp>
                     <serialwarn>true</serialwarn>
                     <quiet>true</quiet>
-                    <header><![CDATA[<br>Angus Activation v${project.version}]]></header>
-                    <bottom>
-                        <![CDATA[
-Comments to : <a href="mailto:angus-dev@eclipse.org">angus-dev@eclipse.org</a>.<br>
-Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]]>
-                    </bottom>
+                    <header>${angus-activation.javadoc.header}</header>
+                    <bottom>${angus-activation.javadoc.bottom}</bottom>
                     <!-- force the doc-files directory to be copied -->
                     <docfilessubdirs>true</docfilessubdirs>
                     <detectJavaApiLink>false</detectJavaApiLink>

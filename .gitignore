@@ -1,7 +1,15 @@
 target/
 */target/
 .m2/
-/.idea/
+.idea/
 .classpath
 .project
 .settings/
+
+_site
+www/.sass-cache
+www/.jekyll-cache
+www/.jekyll-metadata
+www/vendor
+www/api
+www/*.md
