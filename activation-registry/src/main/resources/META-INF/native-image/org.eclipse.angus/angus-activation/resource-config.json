@@ -1,0 +1,18 @@
+{
+  "resources": {
+    "includes": [
+      {
+        "pattern": "\\QMETA-INF/mailcap\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/mailcap.default\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/mime.types\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/mimetypes.default\\E"
+      }
+    ]
+  }
+}

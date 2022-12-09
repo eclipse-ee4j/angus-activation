@@ -35,6 +35,7 @@
         <spec.title>Jakarta Activation Specification</spec.title>
         <activation-api.version>2.1.0</activation-api.version>
         <angus-activation.version>${project.version}</angus-activation.version>
+        <graal.sdk.version>22.3.0</graal.sdk.version>
 
         <angus-activation.javadoc.source>11</angus-activation.javadoc.source>
         <angus-activation.javadoc.title>Angus Activation API documentation</angus-activation.javadoc.title>
@@ -112,6 +113,12 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <groupId>org.eclipse.angus</groupId>
                 <artifactId>angus-activation</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.graalvm.sdk</groupId>
+                <artifactId>graal-sdk</artifactId>
+                <version>${graal.sdk.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
