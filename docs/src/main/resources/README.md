@@ -28,7 +28,7 @@ to `org.eclipse.angus.activation` and package name from
 
 ## December TBD, 2022 - Angus Activation 1.1.0 Final Release
 
-Adds built-in support for GraalVM native-image.
+Adds built-in support for GraalVM native-image, support for OSGi Mediator Specification.
 
 
 | native-image option                  | description                               | value                      |

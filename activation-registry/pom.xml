@@ -12,8 +12,8 @@
 
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>org.eclipse.angus</groupId>
@@ -39,6 +39,28 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <configuration>
+                    <instructions>
+                        <Provide-Capability><![CDATA[
+                            osgi.serviceloader;
+                                osgi.serviceloader="jakarta.activation.spi.MailcapRegistryProvider";
+                                uses="jakarta.activation.spi",
+                            osgi.serviceloader;
+                                osgi.serviceloader="jakarta.activation.spi.MimeTypeRegistryProvider";
+                                uses="jakarta.activation.spi",
+                            ]]>
+                        </Provide-Capability>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <profiles>
         <profile>
