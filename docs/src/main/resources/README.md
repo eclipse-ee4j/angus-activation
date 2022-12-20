@@ -28,7 +28,13 @@ to `org.eclipse.angus.activation` and package name from
 
 ## December TBD, 2022 - Angus Activation 1.1.0 Final Release
 
-Adds built-in support for GraalVM native-image, support for OSGi Mediator Specification.
+Adds built-in support for GraalVM native-image, support for OSGi Mediator Specification,
+clean up supported system properties.
+
+| system property             | description                                           | value                       |
+|:----------------------------|:------------------------------------------------------|:----------------------------|
+| angus.activation.addreverse | Read mailcap file from the end                        | **false** (default) / true  |
+| angus.activation.debug      | Print log messages, logger name is `angus.activation` | **false** (default) / true  |
 
 
 | native-image option                  | description                               | value                      |
@@ -36,6 +42,8 @@ Adds built-in support for GraalVM native-image, support for OSGi Mediator Specif
 | angus.activation.native-image.enable | Turn on built-in support for native image | false / **true** (default) |
 | angus.activation.native-image.trace  | Print log messages to `System.out`        | **false** (default) / true |
 
+System properties with `jakarta.activation`/`javax.activation` prefix are deprecated and future
+versions of Angus Activation ignore them.
 
 ## December 14, 2021 - Angus Activation 1.0.0 Final Release
 

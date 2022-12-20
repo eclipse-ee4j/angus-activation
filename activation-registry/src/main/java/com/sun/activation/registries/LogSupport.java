@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1997, 2021 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997, 2022 Oracle and/or its affiliates. All rights reserved.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v. 1.0, which is available at
@@ -23,12 +23,11 @@ class LogSupport {
 
     static {
         try {
-            debug = Boolean.getBoolean("jakarta.activation.debug") ||
-                    Boolean.getBoolean("javax.activation.debug");
+            debug = Boolean.getBoolean("angus.activation.debug");
         } catch (Throwable t) {
             // ignore any errors
         }
-        logger = Logger.getLogger("jakarta.activation");
+        logger = Logger.getLogger("angus.activation");
     }
 
     /**
@@ -39,12 +38,18 @@ class LogSupport {
     }
 
     public static void log(String msg) {
+        if (!isLoggable()) {
+            return;
+        }
         if (debug)
             System.out.println(msg);
         logger.log(level, msg);
     }
 
     public static void log(String msg, Throwable t) {
+        if (!isLoggable()) {
+            return;
+        }
         if (debug)
             System.out.println(msg + "; Exception: " + t);
         logger.log(level, msg, t);
