@@ -44,8 +44,6 @@
 Comments to: <a href="mailto:angus-dev@eclipse.org">angus-dev@eclipse.org</a>.<br>
 Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]]></angus-activation.javadoc.bottom>
 
-
-        <javadoc.title>Agnus Activation Documentation</javadoc.title>
         <copyright.exclude>etc/copyright-exclude</copyright.exclude>
         <copyright.ignoreyear>false</copyright.ignoreyear>
         <copyright.scmonly>true</copyright.scmonly>
@@ -147,7 +145,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
-                    <version>5.1.1</version>
+                    <version>5.1.8</version>
                     <configuration>
                         <instructions>
                             <_noextraheaders>true</_noextraheaders>
@@ -302,6 +300,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
                 <configuration>
+                    <niceManifest>true</niceManifest>
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Specification-Title>${spec.title}</Specification-Title>
@@ -429,7 +428,6 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <configuration>
-                    <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
                     <fork>true</fork>
                     <excludeFilterFile>${spotbugs.exclude}</excludeFilterFile>
                     <failThreshold>High</failThreshold>
