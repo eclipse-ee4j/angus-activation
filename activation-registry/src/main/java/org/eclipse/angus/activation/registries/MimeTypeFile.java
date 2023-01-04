@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1997, 2022 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997, 2023 Oracle and/or its affiliates. All rights reserved.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v. 1.0, which is available at
@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package org.eclipse.angus.activation;
+package org.eclipse.angus.activation.registries;
 
 import jakarta.activation.MimeTypeEntry;
 import jakarta.activation.MimeTypeRegistry;
@@ -166,8 +166,7 @@ public class MimeTypeFile implements MimeTypeRegistry {
                         lt.hasMoreTokens())
                     value = lt.nextToken();
                 if (value == null) {
-                    if (LogSupport.isLoggable())
-                        LogSupport.log("Bad .mime.types entry: " + line);
+                    LogSupport.log("Bad .mime.types entry: " + line);
                     return;
                 }
                 if (name.equals("type"))
@@ -179,8 +178,7 @@ public class MimeTypeFile implements MimeTypeRegistry {
                         MimeTypeEntry entry =
                                 new MimeTypeEntry(mime_type, file_ext);
                         type_hash.put(file_ext, entry);
-                        if (LogSupport.isLoggable())
-                            LogSupport.log("Added: " + entry);
+                        LogSupport.log("Added: " + entry);
                     }
                 }
             }
@@ -201,8 +199,7 @@ public class MimeTypeFile implements MimeTypeRegistry {
                 file_ext = strtok.nextToken();
                 entry = new MimeTypeEntry(mime_type, file_ext);
                 type_hash.put(file_ext, entry);
-                if (LogSupport.isLoggable())
-                    LogSupport.log("Added: " + entry);
+                LogSupport.log("Added: " + entry);
             }
         }
     }
@@ -294,7 +291,7 @@ class LineTokenizer {
                     String s;
 
                     if (filter) {
-                        StringBuffer sb = new StringBuffer();
+                        StringBuilder sb = new StringBuilder();
                         for (int i = start + 1; i < currentPosition - 1; i++) {
                             c = str.charAt(i);
                             if (c != '\\')

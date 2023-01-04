@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (c) 1997, 2022 Oracle and/or its affiliates. All rights reserved.
+    Copyright (c) 1997, 2023 Oracle and/or its affiliates. All rights reserved.
 
     This program and the accompanying materials are made available under the
     terms of the Eclipse Distribution License v. 1.0, which is available at
@@ -33,8 +33,9 @@
     <properties>
         <spec.version>2.1</spec.version>
         <spec.title>Jakarta Activation Specification</spec.title>
-        <activation-api.version>2.1.0</activation-api.version>
+        <activation-api.version>2.1.1</activation-api.version>
         <angus-activation.version>${project.version}</angus-activation.version>
+        <graal.sdk.version>22.3.0</graal.sdk.version>
 
         <angus-activation.javadoc.source>11</angus-activation.javadoc.source>
         <angus-activation.javadoc.title>Angus Activation API documentation</angus-activation.javadoc.title>
@@ -43,8 +44,6 @@
 Comments to: <a href="mailto:angus-dev@eclipse.org">angus-dev@eclipse.org</a>.<br>
 Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]]></angus-activation.javadoc.bottom>
 
-
-        <javadoc.title>Agnus Activation Documentation</javadoc.title>
         <copyright.exclude>etc/copyright-exclude</copyright.exclude>
         <copyright.ignoreyear>false</copyright.ignoreyear>
         <copyright.scmonly>true</copyright.scmonly>
@@ -52,7 +51,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
         <spotbugs.skip>false</spotbugs.skip>
         <spotbugs.threshold>Low</spotbugs.threshold>
         <spotbugs.exclude>etc/spotbugs-exclude.xml</spotbugs.exclude>
-        <spotbugs.version>4.4.2.2</spotbugs.version>
+        <spotbugs.version>4.7.3.0</spotbugs.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -113,6 +112,12 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <artifactId>angus-activation</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.graalvm.sdk</groupId>
+                <artifactId>graal-sdk</artifactId>
+                <version>${graal.sdk.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -130,17 +135,17 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.1</version>
+                    <version>3.10.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>buildnumber-maven-plugin</artifactId>
-                    <version>1.4</version>
+                    <version>3.0.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
-                    <version>5.1.1</version>
+                    <version>5.1.8</version>
                     <configuration>
                         <instructions>
                             <_noextraheaders>true</_noextraheaders>
@@ -150,17 +155,17 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.2.0</version>
+                    <version>3.3.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>3.2.0</version>
+                    <version>3.3.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>3.3.0</version>
+                    <version>3.4.2</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
@@ -174,7 +179,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.1.0</version>
                 </plugin>
 
                 <plugin>
@@ -185,7 +190,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.3.1</version>
+                    <version>3.4.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -202,7 +207,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>3.1.2</version>
+                    <version>3.4.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.glassfish.copyright</groupId>
@@ -212,7 +217,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.7</version>
+                    <version>0.8.8</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -248,6 +253,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
             but the module-info.java file.
             -->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <release>9</release>
@@ -294,6 +300,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
                 <configuration>
+                    <niceManifest>true</niceManifest>
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Specification-Title>${spec.title}</Specification-Title>
@@ -421,7 +428,6 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <configuration>
-                    <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
                     <fork>true</fork>
                     <excludeFilterFile>${spotbugs.exclude}</excludeFilterFile>
                     <failThreshold>High</failThreshold>

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1997, 2022 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997, 2023 Oracle and/or its affiliates. All rights reserved.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v. 1.0, which is available at
@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package org.eclipse.angus.activation;
+package org.eclipse.angus.activation.registries;
 
 import jakarta.activation.MailcapRegistry;
 
@@ -54,8 +54,18 @@ public class MailcapFile implements MailcapRegistry {
 
     static {
         try {
-            addReverse = Boolean.getBoolean("jakarta.activation.addreverse") ||
-                    Boolean.getBoolean("javax.activation.addreverse");
+            addReverse = Boolean.getBoolean("angus.activation.addreverse");
+            // deprecated in 1.1.0:
+            String prop = System.getProperty("jakarta.activation.addreverse");
+            if (prop != null) {
+                LogSupport.log("'jakarta.activation.addreverse' property is deprecated, use 'angus.activation.addreverse' instead");
+                addReverse = Boolean.parseBoolean(prop);
+            }
+            prop = System.getProperty("javax.activation.addreverse");
+            if (prop != null) {
+                LogSupport.log("'javax.activation.addreverse' property is deprecated, use 'angus.activation.addreverse' instead");
+                addReverse = Boolean.parseBoolean(prop);
+            }
         } catch (Throwable t) {
             // ignore any errors
         }
@@ -68,8 +78,7 @@ public class MailcapFile implements MailcapRegistry {
      * @throws IOException    for I/O errors
      */
     public MailcapFile(String new_fname) throws IOException {
-        if (LogSupport.isLoggable())
-            LogSupport.log("new MailcapFile: file " + new_fname);
+        LogSupport.log("new MailcapFile: file " + new_fname);
         try (BufferedReader reader = new BufferedReader(new FileReader(new_fname))) {
             parse(reader);
         }
@@ -82,8 +91,7 @@ public class MailcapFile implements MailcapRegistry {
      * @throws IOException    for I/O errors
      */
     public MailcapFile(InputStream is) throws IOException {
-        if (LogSupport.isLoggable())
-            LogSupport.log("new MailcapFile: InputStream");
+        LogSupport.log("new MailcapFile: InputStream");
         parse(new BufferedReader(new InputStreamReader(is, StandardCharsets.ISO_8859_1)));
     }
 
@@ -91,8 +99,7 @@ public class MailcapFile implements MailcapRegistry {
      * Mailcap file default constructor.
      */
     public MailcapFile() {
-        if (LogSupport.isLoggable())
-            LogSupport.log("new MailcapFile: default");
+        LogSupport.log("new MailcapFile: default");
     }
 
     /**
@@ -232,8 +239,7 @@ public class MailcapFile implements MailcapRegistry {
      * @param    mail_cap    the mailcap string
      */
     public void appendToMailcap(String mail_cap) {
-        if (LogSupport.isLoggable())
-            LogSupport.log("appendToMailcap: " + mail_cap);
+        LogSupport.log("appendToMailcap: " + mail_cap);
         try {
             parse(new BufferedReader(new StringReader(mail_cap)));
         } catch (IOException ex) {
@@ -300,8 +306,7 @@ public class MailcapFile implements MailcapRegistry {
         MailcapTokenizer tokenizer = new MailcapTokenizer(mailcapEntry);
         tokenizer.setIsAutoquoting(false);
 
-        if (LogSupport.isLoggable())
-            LogSupport.log("parse: " + mailcapEntry);
+        LogSupport.log("parse: " + mailcapEntry);
         //	parse the primary type
         int currentToken = tokenizer.nextToken();
         if (currentToken != MailcapTokenizer.STRING_TOKEN) {
@@ -339,8 +344,7 @@ public class MailcapFile implements MailcapRegistry {
 
         String mimeType = primaryType + "/" + subType;
 
-        if (LogSupport.isLoggable())
-            LogSupport.log("  Type: " + mimeType);
+        LogSupport.log("  Type: " + mimeType);
 
         //	now setup the commands hashtable
         Map<String, List<String>> commands = new LinkedHashMap<>();    // keep commands in order found
@@ -435,8 +439,7 @@ public class MailcapFile implements MailcapRegistry {
                         } else {
 
                             //	setup the class entry list
-                            if (LogSupport.isLoggable())
-                                LogSupport.log("    Command: " + commandName +
+                            LogSupport.log("    Command: " + commandName +
                                         ", Class: " + paramValue);
                             List<String> classes = commands.computeIfAbsent(commandName, k -> new ArrayList<>());
                             if (addReverse)
@@ -456,8 +459,7 @@ public class MailcapFile implements MailcapRegistry {
             if (curcommands == null) {
                 masterHash.put(mimeType, commands);
             } else {
-                if (LogSupport.isLoggable())
-                    LogSupport.log("Merging commands for type " + mimeType);
+                LogSupport.log("Merging commands for type " + mimeType);
                 // have to merge current and new commands
                 // first, merge list of classes for commands already known
                 Iterator<String> cn = curcommands.keySet().iterator();
@@ -516,13 +518,6 @@ public class MailcapFile implements MailcapRegistry {
     protected static void reportParseError(int expectedToken,
                                            int otherExpectedToken, int anotherExpectedToken, int actualToken,
                                            String actualTokenValue) throws MailcapParseException {
-        if (LogSupport.isLoggable())
-            LogSupport.log("PARSE ERROR: " + "Encountered a " +
-                    MailcapTokenizer.nameForToken(actualToken) + " token (" +
-                    actualTokenValue + ") while expecting a " +
-                    MailcapTokenizer.nameForToken(expectedToken) + ", a " +
-                    MailcapTokenizer.nameForToken(otherExpectedToken) + ", or a " +
-                    MailcapTokenizer.nameForToken(anotherExpectedToken) + " token.");
         throw new MailcapParseException("Encountered a " +
                 MailcapTokenizer.nameForToken(actualToken) + " token (" +
                 actualTokenValue + ") while expecting a " +

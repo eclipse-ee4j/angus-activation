@@ -14,13 +14,13 @@ name: Angus-Activation
 
 on:
   pull_request:
-    paths:
-      - '!docs/**'
-      - '!www/**'
+    paths-ignore:
+      - 'docs/**'
+      - 'www/**'
   push:
-    paths:
-      - '!docs/**'
-      - '!www/**'
+    paths-ignore:
+      - 'docs/**'
+      - 'www/**'
 
 jobs:
   build:
