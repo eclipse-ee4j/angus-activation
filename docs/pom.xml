@@ -105,7 +105,7 @@
                                     <artifactId>angus-activation</artifactId>
                                     <version>${angus-activation.version}</version>
                                     <classifier>sources</classifier>
-                                    <outputDirectory>${project.build.directory}/javadoc-sources/com.sun.activation.registries</outputDirectory>
+                                    <outputDirectory>${project.build.directory}/javadoc-sources/org.eclipse.angus.activation</outputDirectory>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
