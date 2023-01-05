@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package org.eclipse.angus.activation.registries;
+package org.eclipse.angus.activation;
 
 import jakarta.activation.MimeTypeRegistry;
 import jakarta.activation.spi.MimeTypeRegistryProvider;

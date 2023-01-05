@@ -10,7 +10,7 @@
 
 package org.eclipse.angus.activation.nativeimage;
 
-import org.eclipse.angus.activation.registries.MailcapFile;
+import org.eclipse.angus.activation.MailcapFile;
 import org.graalvm.nativeimage.hosted.Feature;
 import org.graalvm.nativeimage.hosted.RuntimeReflection;
 

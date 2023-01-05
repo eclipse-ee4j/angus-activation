@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package org.eclipse.angus.activation.registries;
+package org.eclipse.angus.activation;
 
 /**
  *	A class to encapsulate Mailcap parsing related exceptions

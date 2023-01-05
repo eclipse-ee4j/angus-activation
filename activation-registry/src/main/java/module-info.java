@@ -11,13 +11,13 @@
 /**
  * Eclipse Angus - Activation provides implementation of Jakarta Activation Specification.
  */
-module org.eclipse.angus.activation.registries {
-    exports org.eclipse.angus.activation.registries;
+module org.eclipse.angus.activation {
+    exports org.eclipse.angus.activation;
     requires java.logging;
     requires transitive jakarta.activation;
 
     requires static org.graalvm.sdk;
 
-    provides jakarta.activation.spi.MailcapRegistryProvider with org.eclipse.angus.activation.registries.MailcapRegistryProviderImpl;
-    provides jakarta.activation.spi.MimeTypeRegistryProvider with org.eclipse.angus.activation.registries.MimeTypeRegistryProviderImpl;
+    provides jakarta.activation.spi.MailcapRegistryProvider with org.eclipse.angus.activation.MailcapRegistryProviderImpl;
+    provides jakarta.activation.spi.MimeTypeRegistryProvider with org.eclipse.angus.activation.MimeTypeRegistryProviderImpl;
 }

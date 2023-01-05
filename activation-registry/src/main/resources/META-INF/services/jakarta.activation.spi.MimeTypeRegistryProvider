@@ -7,4 +7,4 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-org.eclipse.angus.activation.registries.MimeTypeRegistryProviderImpl
+org.eclipse.angus.activation.MimeTypeRegistryProviderImpl

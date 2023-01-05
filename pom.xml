@@ -25,7 +25,7 @@
     <groupId>org.eclipse.angus</groupId>
     <artifactId>angus-activation-project</artifactId>
     <packaging>pom</packaging>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <name>Angus Activation Project</name>
     <description>${project.name}</description>
     <url>https://github.com/eclipse-ee4j/angus-activation</url>

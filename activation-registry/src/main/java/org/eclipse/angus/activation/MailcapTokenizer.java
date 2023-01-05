@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package org.eclipse.angus.activation.registries;
+package org.eclipse.angus.activation;
 
 /**
  *	A tokenizer for strings in the form of "foo/bar; prop1=val1; ... ".

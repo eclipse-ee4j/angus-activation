@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package org.eclipse.angus.activation.registries;
+package org.eclipse.angus.activation;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
