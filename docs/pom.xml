@@ -150,7 +150,7 @@
                                     <bottom>${angus-activation.javadoc.bottom}</bottom>
                                     <header>${angus-activation.javadoc.header}</header>
                                     <group title="Jakarta Activation API Packages" packages="jakarta.activation*"/>
-                                    <group title="Implementation-specific Packages" packages="com.sun.activation*"/>
+                                    <group title="Implementation-specific Packages" packages="org.eclipse.angus.activation*"/>
                                     <fileset dir="${project.build.directory}/javadoc-sources">
                                         <include name="**/*.java"/>
                                     </fileset>
