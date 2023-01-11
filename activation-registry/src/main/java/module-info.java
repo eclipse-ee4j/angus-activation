@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, 2022 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2021, 2023 Oracle and/or its affiliates. All rights reserved.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v. 1.0, which is available at
@@ -11,13 +11,13 @@
 /**
  * Eclipse Angus - Activation provides implementation of Jakarta Activation Specification.
  */
-module com.sun.activation.registries {
-    exports com.sun.activation.registries;
+module org.eclipse.angus.activation {
+    exports org.eclipse.angus.activation;
     requires java.logging;
     requires transitive jakarta.activation;
 
     requires static org.graalvm.sdk;
 
-    provides jakarta.activation.spi.MailcapRegistryProvider with com.sun.activation.registries.MailcapRegistryProviderImpl;
-    provides jakarta.activation.spi.MimeTypeRegistryProvider with com.sun.activation.registries.MimeTypeRegistryProviderImpl;
+    provides jakarta.activation.spi.MailcapRegistryProvider with org.eclipse.angus.activation.MailcapRegistryProviderImpl;
+    provides jakarta.activation.spi.MimeTypeRegistryProvider with org.eclipse.angus.activation.MimeTypeRegistryProviderImpl;
 }

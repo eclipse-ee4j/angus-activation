@@ -2,6 +2,9 @@ target/
 */target/
 .m2/
 .idea/
+.classpath
+.project
+.settings/
 
 _site
 www/.sass-cache
