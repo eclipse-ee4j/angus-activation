@@ -41,6 +41,12 @@
             <artifactId>angus-activation</artifactId>
             <version>${angus-activation.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.graalvm.sdk</groupId>
+            <artifactId>graal-sdk</artifactId>
+            <optional>true</optional>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -132,9 +138,23 @@
                         </goals>
                         <configuration>
                             <target>
+                                <condition property="jdoc.dir" value="org.eclipse.angus.activation" else="com.sun.activation.registries">
+                                    <not>
+                                        <matches string="${angus-activation.version}" pattern="^1\..*$"/>
+                                    </not>
+                                </condition>
+                                <condition property="jdoc.pkgs" value="org.eclipse.angus.activation" else="com.sun.activation">
+                                    <not>
+                                        <matches string="${angus-activation.version}" pattern="^1\..*$"/>
+                                    </not>
+                                </condition>
+                                <move todir="${project.build.directory}/javadoc-sources/${jdoc.dir}" failonerror="false">
+                                    <fileset dir="${project.build.directory}/javadoc-sources/org.eclipse.angus.activation"/>
+                                </move>
                                 <mkdir dir="${angus-activation.javadoc.destdir}"/>
                                 <javadoc destdir="${angus-activation.javadoc.destdir}"
                                          modulesourcepath="${project.build.directory}/javadoc-sources/"
+                                         modulepath="${org.graalvm.sdk:graal-sdk:jar}"
                                          author="false"
                                          docfilessubdirs="true"
                                          failonerror="true"
@@ -150,7 +170,7 @@
                                     <bottom>${angus-activation.javadoc.bottom}</bottom>
                                     <header>${angus-activation.javadoc.header}</header>
                                     <group title="Jakarta Activation API Packages" packages="jakarta.activation*"/>
-                                    <group title="Implementation-specific Packages" packages="org.eclipse.angus.activation*"/>
+                                    <group title="Implementation-specific Packages" packages="${jdoc.pkgs}*"/>
                                     <fileset dir="${project.build.directory}/javadoc-sources">
                                         <include name="**/*.java"/>
                                     </fileset>
