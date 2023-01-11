@@ -55,17 +55,6 @@ public class MailcapFile implements MailcapRegistry {
     static {
         try {
             addReverse = Boolean.getBoolean("angus.activation.addreverse");
-            // deprecated in 1.1.0:
-            String prop = System.getProperty("jakarta.activation.addreverse");
-            if (prop != null) {
-                LogSupport.log("'jakarta.activation.addreverse' property is deprecated, use 'angus.activation.addreverse' instead");
-                addReverse = Boolean.parseBoolean(prop);
-            }
-            prop = System.getProperty("javax.activation.addreverse");
-            if (prop != null) {
-                LogSupport.log("'javax.activation.addreverse' property is deprecated, use 'angus.activation.addreverse' instead");
-                addReverse = Boolean.parseBoolean(prop);
-            }
         } catch (Throwable t) {
             // ignore any errors
         }
