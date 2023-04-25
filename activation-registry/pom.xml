@@ -58,11 +58,9 @@
                             osgi.service;
                               objectClass:List<String>="org.eclipse.angus.activation.MimeTypeRegistryProviderImpl";effective:=active,
                             osgi.serviceloader;
-                              osgi.serviceloader="org.eclipse.angus.activation.MailcapRegistryProviderImpl";
-                              register:="org.eclipse.angus.activation.MailcapRegistryProviderImpl",
+                              osgi.serviceloader="jakarta.activation.spi.MailcapRegistryProvider",
                             osgi.serviceloader;
-                              osgi.serviceloader="org.eclipse.angus.activation.MimeTypeRegistryProviderImpl";
-                              register:="org.eclipse.angus.activation.MimeTypeRegistryProviderImpl"
+                              osgi.serviceloader="jakarta.activation.spi.MimeTypeRegistryProvider"
                           ]]>
                         </Provide-Capability>
                     </instructions>
