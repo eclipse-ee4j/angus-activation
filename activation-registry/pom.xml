@@ -53,10 +53,6 @@
                             ]]>
                         </Require-Capability>
                         <Provide-Capability><![CDATA[
-                            osgi.service;
-                              objectClass:List<String>="org.eclipse.angus.activation.MailcapRegistryProviderImpl";effective:=active,
-                            osgi.service;
-                              objectClass:List<String>="org.eclipse.angus.activation.MimeTypeRegistryProviderImpl";effective:=active,
                             osgi.serviceloader;
                               osgi.serviceloader="jakarta.activation.spi.MailcapRegistryProvider",
                             osgi.serviceloader;
