@@ -51,7 +51,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
         <spotbugs.skip>false</spotbugs.skip>
         <spotbugs.threshold>Low</spotbugs.threshold>
         <spotbugs.exclude>etc/spotbugs-exclude.xml</spotbugs.exclude>
-        <spotbugs.version>4.7.3.0</spotbugs.version>
+        <spotbugs.version>4.7.3.4</spotbugs.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -130,12 +130,12 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.3.0</version>
+                    <version>3.3.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.10.1</version>
+                    <version>3.11.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -165,7 +165,12 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>3.4.2</version>
+                    <version>3.5.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.5.0</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
@@ -179,7 +184,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>3.3.0</version>
                 </plugin>
 
                 <plugin>
@@ -190,7 +195,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.4.1</version>
+                    <version>3.5.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -200,14 +205,14 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                         <dependency>
                             <groupId>org.apache.ant</groupId>
                             <artifactId>ant</artifactId>
-                            <version>1.10.12</version>
+                            <version>1.10.13</version>
                         </dependency>
                     </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>3.4.1</version>
+                    <version>3.4.3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.glassfish.copyright</groupId>
@@ -217,7 +222,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.8</version>
+                    <version>0.8.10</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -261,7 +266,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                         <arg>-Xlint:all</arg>
                     </compilerArgs>
                     <showDeprecation>true</showDeprecation>
-                    <showWarnings>true</showWarnings>
+                    <createMissingPackageInfoClass>false</createMissingPackageInfoClass>
                 </configuration>
                 <executions>
                     <execution>
@@ -446,6 +451,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
             <id>build-only</id>
             <modules>
                 <module>demo</module>
+                <module>docs</module>
             </modules>
             <activation>
                 <activeByDefault>true</activeByDefault>
