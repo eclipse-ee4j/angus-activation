@@ -10,5 +10,6 @@ doc/spec/
 spec/src/main/asciidoc/license-efsl.adoc
 .txt
 .TXT
+.md
 www/
 
