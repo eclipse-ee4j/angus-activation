@@ -33,7 +33,7 @@
     <properties>
         <spec.version>2.1</spec.version>
         <spec.title>Jakarta Activation Specification</spec.title>
-        <activation-api.version>2.1.1</activation-api.version>
+        <activation-api.version>2.1.2</activation-api.version>
         <angus-activation.version>${project.version}</angus-activation.version>
         <graal.sdk.version>22.3.0</graal.sdk.version>
 
