@@ -20,6 +20,12 @@ This project is part of [Eclipse Angus project](https://projects.eclipse.org/pro
 
 # <a name="Latest_News"></a>Latest News
 
+## April 28, 2023 - Angus Activation 2.0.1 Final Release
+
+Eclipse Angus Activation 2.0.1 is a bug fix release of 2.0.x
+fixing integration with OSGi Mediator Specification and class
+file version in `package-info`.
+
 ## January 13, 2023 - Angus Activation 2.0.0 Final Release
 
 Changes module name from `com.sun.activation.registries`

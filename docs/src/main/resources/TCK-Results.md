@@ -5,6 +5,48 @@ As required by the
 [Eclipse Foundation Technology Compatibility Kit License](https://www.eclipse.org/legal/tck.php),
 following is a summary of the TCK results for releases of Eclispe Angus - Activation.
 
+# 2.0.1 Certification Request
+
+- [x] Organization Name ("Organization") and, if applicable, URL\
+  [Eclipse Foundation](https://www.eclipse.org/)
+- [x] Product Name, Version and download URL (if applicable)\
+  [Eclipse Angus - Angus Activation 2.0.1](https://eclipse-ee4j.github.io/angus-activation/)
+- [x] Specification Name, Version and download URL\
+  [Jakarta Activation 2.1](https://jakarta.ee/activation/2.1)
+- [x] TCK Version, digital SHA-256 fingerprint and download URL\
+  [Jakarta Activation TCK 2.1.1](https://download.eclipse.org/jakartaee/activation/2.1/jakarta-activation-tck-2.1.1.zip), SHA-256: 30918e42fefd00c6ed123e4bd72cc1fe036a0eb64bf9d3c54a8902aa7b88ea54
+- [x] Public URL of TCK Results Summary\
+  [TCK results summary](https://eclipse-ee4j.github.io/angus-activation/TCK-Results)
+- [x] Any Additional Specification Certification Requirements\
+  None
+- [x] Java runtime used to run the implementation\
+  openjdk version "11.0.2" 2019-01-15
+- [x] Summary of the information for the certification environment, operating system, cloud, ...\
+  Linux
+- [x] By checking this box I acknowledge that the Organization I represent accepts the terms of the [EFTL](https://www.eclipse.org/legal/tck.php).
+- [x] By checking this box I attest that all TCK requirements have been met, including any compatibility rules.
+
+Test results:
+
+```
+***                        TCK results summary                                  ***
+[javatest.batch] Number of Tests Passed      = 91
+[javatest.batch] Number of Tests Failed      = 0
+[javatest.batch] Number of Tests with Errors = 0
+[javatest.batch] Number of Tests Not Run     = 0
+[javatest.batch] ---------------------------------------------------------------
+
+run.pluggability:
+[javatest.batch] Number of tests completed:  2 (2 pass, 0 fail, 0 errors)
+[javatest.batch] ***************************************************************
+[javatest.batch] Completed running 2 tests.
+[javatest.batch] Number of Tests Passed      = 2
+[javatest.batch] Number of Tests Failed      = 0
+[javatest.batch] Number of Tests with Errors = 0
+[javatest.batch] Number of Tests Not Run     = 0
+[javatest.batch] ---------------------------------------------------------------
+```
+
 # 2.0.0 Certification Request
 
 - [x] Organization Name ("Organization") and, if applicable, URL\
