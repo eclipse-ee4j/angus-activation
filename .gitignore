@@ -5,6 +5,7 @@ target/
 .classpath
 .project
 .settings/
+*.iml
 
 _site
 www/.sass-cache
