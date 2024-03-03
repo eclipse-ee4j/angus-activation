@@ -20,6 +20,11 @@ This project is part of [Eclipse Angus project](https://projects.eclipse.org/pro
 
 # <a name="Latest_News"></a>Latest News
 
+## March 2, 2024 - Angus Activation 2.0.2 Final Release
+
+Eclipse Angus Activation 2.0.2 is a bug fix release of 2.0.x
+integrating Jakarta Activation API 2.1.3.
+
 ## April 28, 2023 - Angus Activation 2.0.1 Final Release
 
 Eclipse Angus Activation 2.0.1 is a bug fix release of 2.0.x
