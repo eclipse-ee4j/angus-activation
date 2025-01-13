@@ -7,4 +7,6 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
+#import aQute.bnd.annotation.spi.ServiceProvider
+#@ServiceProvider
 org.eclipse.angus.activation.MailcapRegistryProviderImpl

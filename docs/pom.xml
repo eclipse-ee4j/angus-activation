@@ -71,6 +71,12 @@
             <optional>true</optional>
             <scope>provided</scope>
         </dependency>
+        <!-- OSGi -->
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi.annotation</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -178,7 +184,7 @@
                                 <mkdir dir="${angus-activation.javadoc.destdir}"/>
                                 <javadoc destdir="${angus-activation.javadoc.destdir}"
                                          modulesourcepath="${project.build.directory}/javadoc-sources/"
-                                         modulepath="${org.graalvm.sdk:graal-sdk:jar}:${org.graalvm.polyglot:polyglot:jar}:${org.graalvm.sdk:nativeimage:jar}:${org.graalvm.sdk:collections:jar}:${org.graalvm.sdk:word:jar}"
+                                         modulepath="${org.graalvm.sdk:graal-sdk:jar}:${org.graalvm.polyglot:polyglot:jar}:${org.graalvm.sdk:nativeimage:jar}:${org.graalvm.sdk:collections:jar}:${org.graalvm.sdk:word:jar}:${org.osgi:osgi.annotation:jar}"
                                          author="false"
                                          docfilessubdirs="true"
                                          failonerror="true"
