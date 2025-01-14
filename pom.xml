@@ -148,6 +148,11 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <artifactId>osgi.annotation</artifactId>
                 <version>8.1.0</version>
             </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>osgi.core</artifactId>
+                <version>8.0.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

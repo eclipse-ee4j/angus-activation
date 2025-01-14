@@ -18,6 +18,7 @@ module org.eclipse.angus.activation {
 
     requires static org.graalvm.sdk;
     requires static osgi.annotation;
+    requires static osgi.core;
 
     provides jakarta.activation.spi.MailcapRegistryProvider with org.eclipse.angus.activation.MailcapRegistryProviderImpl;
     provides jakarta.activation.spi.MimeTypeRegistryProvider with org.eclipse.angus.activation.MimeTypeRegistryProviderImpl;
