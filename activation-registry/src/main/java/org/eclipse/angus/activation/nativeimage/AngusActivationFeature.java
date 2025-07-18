@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, 2023 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2022, 2025 Oracle and/or its affiliates. All rights reserved.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v. 1.0, which is available at
@@ -17,7 +17,6 @@ import org.graalvm.nativeimage.hosted.RuntimeReflection;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.List;
@@ -33,7 +32,7 @@ public class AngusActivationFeature implements Feature {
     private static final boolean ENABLED = getOption("angus.activation.native-image.enable", true);
     private static final boolean DEBUG = getOption("angus.activation.native-image.trace", false);
 
-    private static final List<String> RESOURCES = new ArrayList<String>() {{ add("META-INF/mailcap"); add("META-INF/mailcap.default");}} ;
+    private static final List<String> RESOURCES = List.of("META-INF/mailcap", "META-INF/mailcap.default");
 
     /**
      * Default constructor
