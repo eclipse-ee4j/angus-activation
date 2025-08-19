@@ -7,11 +7,23 @@
       {
         "pattern": "\\QMETA-INF/mailcap.default\\E"
       },
+            {
+        "pattern": "\\QMETA-INF/jakarta.mailcap\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/jakarta.mailcap.default\\E"
+      },
       {
         "pattern": "\\QMETA-INF/mime.types\\E"
       },
       {
         "pattern": "\\QMETA-INF/mimetypes.default\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/jakarta.mime.types\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/jakarta.mimetypes.default\\E"
       }
     ]
   }
