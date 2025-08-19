@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1997, 2023 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997, 2025 Oracle and/or its affiliates. All rights reserved.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v. 1.0, which is available at
@@ -94,8 +94,8 @@ public class MimeTypeFile implements MimeTypeRegistry {
 
     /**
      * Appends string of entries to the types registry, must be valid
-     * .mime.types format.
-     * A mime.types entry is one of two forms:
+     * .jakarta.mime.types format.
+     * A jakarta.mime.types entry is one of two forms:
      * <p>
      * type/subtype	ext1 ext2 ...
      * or
@@ -118,7 +118,7 @@ public class MimeTypeFile implements MimeTypeRegistry {
     }
 
     /**
-     * Parse a stream of mime.types entries.
+     * Parse a stream of jakarta.mime.types entries.
      */
     private void parse(BufferedReader buf_reader) throws IOException {
         String line = null, prev = null;
@@ -141,7 +141,7 @@ public class MimeTypeFile implements MimeTypeRegistry {
     }
 
     /**
-     * Parse single mime.types entry.
+     * Parse single jakarta.mime.types entry.
      */
     private void parseEntry(String line) {
         String mime_type = null;
@@ -166,7 +166,7 @@ public class MimeTypeFile implements MimeTypeRegistry {
                         lt.hasMoreTokens())
                     value = lt.nextToken();
                 if (value == null) {
-                    LogSupport.log("Bad .mime.types entry: " + line);
+                    LogSupport.log("Bad .jakarta.mime.types entry: " + line);
                     return;
                 }
                 if (name.equals("type"))

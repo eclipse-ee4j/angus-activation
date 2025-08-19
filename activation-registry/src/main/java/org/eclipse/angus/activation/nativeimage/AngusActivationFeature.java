@@ -32,7 +32,8 @@ public class AngusActivationFeature implements Feature {
     private static final boolean ENABLED = getOption("angus.activation.native-image.enable", true);
     private static final boolean DEBUG = getOption("angus.activation.native-image.trace", false);
 
-    private static final List<String> RESOURCES = List.of("META-INF/mailcap", "META-INF/mailcap.default");
+    private static final List<String> RESOURCES = List.of("META-INF/jakarta.mailcap", "META-INF/jakarta.mailcap.default");
+    private static final List<String> RESOURCES_OLD = List.of("META-INF/mailcap", "META-INF/mailcap.default");
 
     /**
      * Default constructor
@@ -47,8 +48,30 @@ public class AngusActivationFeature implements Feature {
 
     @Override
     public void beforeAnalysis(BeforeAnalysisAccess access) {
+        Set<String> commands = commands(access, RESOURCES);
+        if (commands.isEmpty()) {
+            commands = commands(access, RESOURCES_OLD);
+        }
+
+        commands.forEach(command -> {
+            Class<?> cls = access.findClassByName(command);
+            if (cls != null) {
+                log(() -> "Registering " + cls);
+                try {
+                    RuntimeReflection.register(cls);
+                    RuntimeReflection.register(cls.getConstructor());
+                } catch (NoSuchMethodException e) {
+                    log(() -> "\tno constructor for " + cls);
+                }
+            } else {
+                log(() -> "Class for '" + command + "' not found");
+            }
+        });
+    }
+
+    private static Set<String> commands(BeforeAnalysisAccess access, List<String> resources) {
         Set<String> commands = new HashSet<>();
-        for (String resource: RESOURCES) {
+        for (String resource: resources) {
             log(() -> "looking for " + resource);
             try {
                 Enumeration<URL> urls = access.getApplicationClassLoader().getResources(resource);
@@ -73,23 +96,9 @@ public class AngusActivationFeature implements Feature {
                 throw new RuntimeException(ioe);
             }
         }
-
-        commands.forEach(command -> {
-            Class<?> cls = access.findClassByName(command);
-            if (cls != null) {
-                log(() -> "Registering " + cls);
-                try {
-                    RuntimeReflection.register(cls);
-                    RuntimeReflection.register(cls.getConstructor());
-                } catch (NoSuchMethodException e) {
-                    log(() -> "\tno constructor for " + cls);
-                }
-            } else {
-                log(() -> "Class for '" + command + "' not found");
-            }
-        });
+        return commands;
     }
-
+    
     private static boolean getOption(String name, boolean def) {
         String prop = System.getProperty(name);
         if (prop == null) {
