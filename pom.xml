@@ -33,9 +33,11 @@
     <properties>
         <spec.version>2.2</spec.version>
         <spec.title>Jakarta Activation Specification</spec.title>
-        <activation-api.version>2.2.0-M1</activation-api.version>
+        <!-- TODO: Version will need to be updated with JAF containing fix https://github.com/jakartaee/jaf-api/issues/186 -->
+        <activation-api.version>2.2.0-SNAPSHOT</activation-api.version>
         <angus-activation.version>${project.version}</angus-activation.version>
         <graal.sdk.version>23.1.2</graal.sdk.version>
+	<junit.version>6.0.0</junit.version>
 
         <maven.compiler.release>11</maven.compiler.release>
         <maven.compiler.testRelease>${maven.compiler.release}</maven.compiler.testRelease>
@@ -141,6 +143,11 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <groupId>org.graalvm.sdk</groupId>
                 <artifactId>collections</artifactId>
                 <version>${graal.sdk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
