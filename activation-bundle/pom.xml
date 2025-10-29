@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+    Copyright (c) 2025 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Distribution License v. 1.0, which is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    SPDX-License-Identifier: BSD-3-Clause
+
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>org.eclipse.angus</groupId>
+        <artifactId>angus-activation-project</artifactId>
+        <version>2.1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>jakarta.activation</artifactId>
+    <packaging>jar</packaging>
+    <name>Angus Activation OSGi Bundle (jakarta.activation)</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.activation</groupId>
+            <artifactId>jakarta.activation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.angus</groupId>
+            <artifactId>angus-activation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.graalvm.sdk</groupId>
+            <artifactId>graal-sdk</artifactId>
+            <optional>true</optional>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+			        <execution>
+			            <id>unpack-metadata</id>
+			            <phase>process-resources</phase>
+			            <goals>
+			                <goal>unpack</goal>
+			            </goals>
+			            <configuration>
+			                <artifactItems>
+			                    <artifactItem>
+			                        <groupId>org.eclipse.angus</groupId>
+			                        <artifactId>angus-activation</artifactId>
+			                        <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+			                        <!-- Native image too? -->
+			                        <includes>
+			                            META-INF/services/**
+			                        </includes>
+			                        <overWrite>true</overWrite>
+			                    </artifactItem>
+			                    <artifactItem>
+			                        <groupId>jakarta.activation</groupId>
+			                        <artifactId>jakarta.activation-api</artifactId>
+			                        <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+			                        <includes>
+			                            META-INF/jakarta.mailcap.default,META-INF/jakarta.mimetypes.default
+			                        </includes>
+			                        <overWrite>true</overWrite>
+			                    </artifactItem>
+			                </artifactItems>
+			            </configuration>
+			        </execution>
+                    <execution>
+                        <id>unpack-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeArtifactIds>jakarta.activation-api,angus-activation</includeArtifactIds>
+                            <classifier>sources</classifier>
+                            <outputDirectory>${project.build.directory}/merged-sources</outputDirectory>
+                            <!-- Exclude module-info because we use our own in this module -->
+	                        <excludes>
+	                            **/module-info.java
+	                        </excludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-merged-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/merged-sources</source>
+                                <source>src/main/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>jakarta.activation</Bundle-SymbolicName>
+                        <Bundle-Name>Jakarta Activation (Angus Implementation)</Bundle-Name>
+                        <Bundle-Description>
+                            Combined bundle containing Jakarta Activation API and Angus Activation implementation.
+                        </Bundle-Description>
+                        <Export-Package>
+                            jakarta.activation.*;version=${project.version},
+                            com.sun.activation.*;version=${project.version}
+                        </Export-Package>
+                        <Private-Package>
+                            org.eclipse.angus.activation.*
+                        </Private-Package>
+                        <Import-Package>*;resolution:=optional</Import-Package>
+                        <Implementation-Title>Angus Activation</Implementation-Title>
+                        <Implementation-Version>${project.version}</Implementation-Version>
+                        <Implementation-Vendor>The Eclipse Foundation</Implementation-Vendor>
+                    </instructions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <forkCount>1</forkCount>
+                    <reuseForks>false</reuseForks>
+                    <useModulePath>true</useModulePath>
+                    <classpathDependencyExcludes>
+                        jakarta.activation:jakarta.activation-api,org.eclipse.angus:angus-activation
+                    </classpathDependencyExcludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
