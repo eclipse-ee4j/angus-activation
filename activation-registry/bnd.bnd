@@ -1,0 +1,16 @@
+Bundle-DocURL: https://www.eclipse.org
+Extension-Name: ${project.groupId}
+Implementation-Build-Id: ${scmBranch}-${buildNumber}
+Implementation-Title: ${project.name}
+Implementation-Vendor: ${project.organization.name}
+Import-Package:\
+  org.graalvm.nativeimage.hosted;resolution:=optional,\
+  *
+Specification-Title: ${spec.title}
+Specification-Version: ${spec.version}
+Specification-Vendor: ${project.organization.name}
+
+-removeheaders:\
+  Bundle-Developers,\
+  Bundle-SCM,\
+  Private-Package
