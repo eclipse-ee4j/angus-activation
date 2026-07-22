@@ -55,7 +55,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
         <spotbugs.skip>false</spotbugs.skip>
         <spotbugs.threshold>Low</spotbugs.threshold>
         <spotbugs.exclude>etc/spotbugs-exclude.xml</spotbugs.exclude>
-        <spotbugs.version>4.9.8.3</spotbugs.version>
+        <spotbugs.version>4.10.3.0</spotbugs.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.outputTimestamp>2024-02-14T00:00:00Z</project.build.outputTimestamp>
     </properties>
@@ -180,7 +180,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.5.0</version>
+                    <version>3.5.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -195,7 +195,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>3.10.0</version>
+                    <version>3.11.0</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
@@ -247,7 +247,7 @@ Copyright &#169; 2019, ${current.year} Eclipse Foundation. All rights reserved.]
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.14</version>
+                    <version>0.8.15</version>
                 </plugin>
             </plugins>
         </pluginManagement>
